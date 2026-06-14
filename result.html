@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCQ Test Result</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell narrow">
+    <section class="result-panel">
+      <p class="eyebrow">Demoproject</p>
+      <h1>Result</h1>
+
+      <div class="result-details">
+        <article class="result-item">
+          <h2>Aptitude: <span id="aptitudeScore">0/25</span></h2>
+        </article>
+        <article class="result-item">
+          <h2>Engineering: <span id="engineeringScore">0/25</span></h2>
+        </article>
+        <article class="result-item">
+          <h2>English: <span id="englishScore">0/25</span></h2>
+        </article>
+        <article class="result-item">
+          <h2>GK: <span id="gkScore">0/25</span></h2>
+        </article>
+      </div>
+
+      <p class="score-text">Total: <span id="totalScore">0/100</span></p>
+      <p class="score-text">Percentage: <span id="percentage">0%</span></p>
+
+      <div class="actions">
+        <a class="button-link" href="quiz.html">Try Again</a>
+        <a class="button-link secondary" href="login.html">Logout</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const questions = JSON.parse(localStorage.getItem("mcqQuestions") || "[]");
+    const answers = JSON.parse(localStorage.getItem("mcqAnswers") || "[]");
+
+    const scores = {
+      Aptitude: 0,
+      Engineering: 0,
+      English: 0,
+      GK: 0
+    };
+
+    questions.forEach((question, index) => {
+      if (answers[index] === question.answer) {
+        scores[question.topic] += 1;
+      }
+    });
+
+    const total = scores.Aptitude + scores.Engineering + scores.English + scores.GK;
+    const percentage = questions.length ? Math.round((total / 100) * 100) : 0;
+
+    document.getElementById("aptitudeScore").textContent = `${scores.Aptitude}/25`;
+    document.getElementById("engineeringScore").textContent = `${scores.Engineering}/25`;
+    document.getElementById("englishScore").textContent = `${scores.English}/25`;
+    document.getElementById("gkScore").textContent = `${scores.GK}/25`;
+    document.getElementById("totalScore").textContent = `${total}/100`;
+    document.getElementById("percentage").textContent = `${percentage}%`;
+  </script>
+</body>
+</html>
