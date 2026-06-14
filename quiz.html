@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online MCQ Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Demoproject</p>
+        <h1>Online MCQ Test</h1>
+      </div>
+      <div id="timer" class="timer">Time: 00:00</div>
+    </header>
+
+    <section class="question-card">
+      <p id="questionCount" class="muted">Question 1</p>
+      <h2 id="questionText">Loading question...</h2>
+
+      <div class="options">
+        <label>
+          <input type="radio" name="answer" value="0">
+          <span id="option0">Option A</span>
+        </label>
+        <label>
+          <input type="radio" name="answer" value="1">
+          <span id="option1">Option B</span>
+        </label>
+        <label>
+          <input type="radio" name="answer" value="2">
+          <span id="option2">Option C</span>
+        </label>
+        <label>
+          <input type="radio" name="answer" value="3">
+          <span id="option3">Option D</span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="nextBtn" type="button">Next</button>
+        <button id="submitBtn" type="button">Submit</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
